@@ -4,7 +4,7 @@ Sitio web responsive para compartir lugares emblemáticos. Construido con React,
 
 ## 🚀 Demo en vivo
 
-🔗 [Ver demo](https://darkdieval.github.io/web_project_around_react_sprint15/)
+🔗 [Ver demo](https://darkdieval.github.io/web_project_around_auth/signin)
 
 ## ✨ Funcionalidades
 
@@ -27,12 +27,11 @@ Sitio web responsive para compartir lugares emblemáticos. Construido con React,
 
 ## 📦 Instalación
 
-```bash
+````bash
 git clone https://github.com/DarkDieval/web_project_around_auth.git
 cd web_project_around_auth
 npm install
 npm run dev
-```
 
 🔐 Endpoints de autenticación
 POST /signup – Registro de usuarios
@@ -41,14 +40,15 @@ POST /signin – Inicio de sesión
 
 GET /users/me – Obtener datos del usuario autenticado
 
+
 ---
 
-## 3. Instrucciones para subir el proyecto a GitHub
+## 🚀 Subir los cambios a GitHub
 
-Tu repositorio ya está configurado y has estado trabajando en él. Estos son los pasos para subir los cambios finales:
+Una vez que hayas actualizado el `README.md`, sigue estos pasos para subir los cambios:
 
-### Paso 1: Verifica el estado de tu repositorio
+### 1. Verifica el estado de tu repositorio
 
 ```bash
 git status
-```
+````
