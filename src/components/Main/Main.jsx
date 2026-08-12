@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import Card from "./components/Card/Card";
-import Popup from "./components/Popup/Popup";
-import NewCard from "./components/Popup/forms/NewCard";
-import ImagePopup from "./components/Popup/ImagePopup/ImagePopup";
-import RemoveCard from "./components/Popup/RemoveCard/RemoveCard";
-import EditProfile from "./components/Popup/forms/EditProfile";
-import EditAvatar from "./components/Popup/forms/EditAvatar";
+import Card from "../Card/Card";
+import Popup from "../Popup/Popup";
+import NewCard from "../Popup/forms/NewCard";
+import ImagePopup from "../Popup/ImagePopup/ImagePopup";
+import RemoveCard from "../Popup/RemoveCard/RemoveCard";
+import EditProfile from "../Popup/forms/EditProfile";
+import EditAvatar from "../Popup/forms/EditAvatar";
 
 export default function Main({ cards, onCardLike, onCardDelete, onAddCard }) {
   const { currentUser } = useContext(CurrentUserContext);
@@ -51,7 +51,6 @@ export default function Main({ cards, onCardLike, onCardDelete, onAddCard }) {
 
   return (
     <main className="main">
-      {/* Perfil */}
       <div className="profile">
         <div className="profile__image-container">
           <img

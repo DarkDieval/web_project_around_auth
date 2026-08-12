@@ -4,22 +4,35 @@ class Api {
     this._headers = headers;
   }
 
+  _getHeaders() {
+    const headers = {
+      authorization: "d11db2d5-31b2-4646-8072-b29a422effa5",
+      "Content-Type": "application/json",
+    };
+
+    return headers;
+  }
+
   _handleResponse(res) {
     if (res.ok) {
       return res.json();
     }
-    return Promise.reject(`Error: ${res.status}`);
+
+    return res.text().then((text) => {
+      console.error("Error response body:", text);
+      return Promise.reject(`Error: ${res.status} - ${text}`);
+    });
   }
 
   getCardList() {
     return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers,
+      headers: this._getHeaders(),
     }).then(this._handleResponse);
   }
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
+      headers: this._getHeaders(),
     }).then(this._handleResponse);
   }
 
@@ -27,21 +40,21 @@ class Api {
     const method = isLiked ? "PUT" : "DELETE";
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method,
-      headers: this._headers,
+      headers: this._getHeaders(),
     }).then(this._handleResponse);
   }
 
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: this._getHeaders(),
     }).then(this._handleResponse);
   }
 
   setUserInfo({ name, about }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: this._getHeaders(),
       body: JSON.stringify({ name, about }),
     }).then(this._handleResponse);
   }
@@ -49,7 +62,7 @@ class Api {
   setUserAvatar({ avatar }) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: this._getHeaders(),
       body: JSON.stringify({ avatar }),
     }).then(this._handleResponse);
   }
@@ -57,7 +70,7 @@ class Api {
   addCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
-      headers: this._headers,
+      headers: this._getHeaders(),
       body: JSON.stringify({ name, link }),
     }).then(this._handleResponse);
   }
@@ -66,7 +79,6 @@ class Api {
 const api = new Api({
   baseUrl: "https://around-api.es.tripleten-services.com/v1",
   headers: {
-    authorization: "d11db2d5-31b2-4646-8072-b29a422effa5",
     "Content-Type": "application/json",
   },
 });
