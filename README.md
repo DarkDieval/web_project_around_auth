@@ -27,11 +27,12 @@ Sitio web responsive para compartir lugares emblemáticos. Construido con React,
 
 ## 📦 Instalación
 
-````bash
+```bash
 git clone https://github.com/DarkDieval/web_project_around_auth.git
 cd web_project_around_auth
 npm install
 npm run dev
+```
 
 🔐 Endpoints de autenticación
 POST /signup – Registro de usuarios
@@ -39,16 +40,3 @@ POST /signup – Registro de usuarios
 POST /signin – Inicio de sesión
 
 GET /users/me – Obtener datos del usuario autenticado
-
-
----
-
-## 🚀 Subir los cambios a GitHub
-
-Una vez que hayas actualizado el `README.md`, sigue estos pasos para subir los cambios:
-
-### 1. Verifica el estado de tu repositorio
-
-```bash
-git status
-````

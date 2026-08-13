@@ -1,5 +1,10 @@
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
 function Card({ card, onCardClick, onCardLike, onCardDelete }) {
+  const { currentUser } = useContext(CurrentUserContext);
   const isLiked = card.isLiked || false;
+  const isOwn = currentUser && card.owner && card.owner._id === currentUser._id;
 
   const handleLikeClick = (e) => {
     e.stopPropagation();
@@ -29,11 +34,13 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
           onClick={handleLikeClick}
         ></button>
       </div>
-      <button
-        className="places__card-delete-button"
-        type="button"
-        onClick={handleDeleteClick}
-      ></button>
+      {isOwn && (
+        <button
+          className="places__card-delete-button"
+          type="button"
+          onClick={handleDeleteClick}
+        ></button>
+      )}
     </li>
   );
 }

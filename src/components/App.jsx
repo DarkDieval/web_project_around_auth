@@ -107,19 +107,15 @@ function App() {
   };
 
   const handleLogin = (email, password) => {
-    console.log("Intentando login con:", email, password);
     auth
       .login(email, password)
       .then((data) => {
-        console.log("Respuesta de login (data):", data);
         if (data.token) {
           localStorage.setItem("token", data.token);
           setIsLoggedIn(true);
           setUserEmail(email);
-          console.log("Login exitoso, token guardado");
           navigate("/");
         } else {
-          console.log("No se recibió token en la respuesta");
           openInfoTooltip(
             "Error al iniciar sesión. No se recibió token.",
             false,
@@ -127,7 +123,7 @@ function App() {
         }
       })
       .catch((err) => {
-        console.error("Error en login (catch):", err);
+        console.error("Error en login:", err);
         openInfoTooltip(
           "Error al iniciar sesión. Verifica tus credenciales.",
           false,

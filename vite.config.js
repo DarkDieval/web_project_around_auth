@@ -3,8 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  base: "/web_project_around_react/",
-  plugins: [react()],
+  base: "/web_project_around_auth/",
   server: {
     port: 3000,
   },
